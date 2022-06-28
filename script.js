@@ -40,7 +40,7 @@ operations.forEach(operation => {
     
 
 equals.addEventListener('click', () => {
-    operate(a.innerHTML, operator.innerHTML, b.innerHTML)
+    lower.textContent = operate(a.innerHTML, operator.innerHTML, b.innerHTML)
 })
 
 
