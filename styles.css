@@ -9,6 +9,14 @@
     border-radius: 10px;
 }
 
+.operations {
+    color: red;
+}
+
+.numbers, .equals, .decimal {
+    color:blue;
+}
+
 .numbers:hover{
     background-color: darkgray;
 }
@@ -48,6 +56,9 @@
     margin-left: 30px;
     background-color: white;
     border-radius: 10px;
+    font-size: 50px;
+    display: flex;
+    flex-direction: column;
 }
 
 .clear {

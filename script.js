@@ -1,6 +1,7 @@
 let numbers = document.querySelectorAll(".numbers");
 let operations = document.querySelectorAll(".operations")
 let equals = document.querySelector(".equals")
+let decimal = document.querySelector(".decimal")
 let upper = document.querySelector(".upper")
 let lower = document.querySelector(".lower")
 let clear = document.querySelector(".clear")
@@ -39,42 +40,41 @@ numbers.forEach(number => {
     })
 })
 
-
 operations.forEach(operation => {
     operation.addEventListener('click', () => {
-        
-        operator = determineOperator(operation);
         if (!operating) {
+            operator = determineOperator(operation);
             displayValue = upper.textContent
             lower.textContent = upper.textContent
             upper.textContent = ''
         }
         else {
             displayValue2 = upper.textContent
+            upper.textContent = operate(displayValue, operator, displayValue2)
+            displayValue = upper.textContent;
+            lower.textContent = upper.textContent;
+            upper.textContent = ''
+            operator = determineOperator(operation);
         }
         operating = !operating;
     })     
 })
     
+decimal.addEventListener('click', () => {
+    upper.textContent += '.'
+})
 
 equals.addEventListener('click', () => {
-    if (!operating) {
-        lower.textContent = displayValue
-    }
-    
-    else {
-        displayValue2 = upper.textContent
-        upper.textContent = ''
-        lower.textContent = operate(displayValue, operator, displayValue2)
-    }
-    operating = !operating
-
+    calculate();
 })
 
 
 clear.addEventListener('click', () => {
     upper.textContent = '';
     lower.textContent = '';
+    displayValue = 0;
+    displayValue2 = 0;
+    operating = false
 })
 
 function determineOperator(operation) {
@@ -95,4 +95,18 @@ function determineOperator(operation) {
             break;
         }
     return operator
+}
+
+function calculate() {
+    if (!operating) {
+        lower.textContent = displayValue
+    }
+
+    else {
+        displayValue2 = upper.textContent
+        upper.textContent = ''
+        lower.textContent = operate(displayValue, operator, displayValue2)
+    }
+    operating = !operating
+    return lower.textContent;
 }
