@@ -72,6 +72,16 @@ operations.forEach(operation => {
     })     
 })
     
+document.addEventListener('keydown', (event) => {
+    upper.textContent += event.key;
+    if (event.key == 'Backspace') {
+        upper.textContent = upper.textContent.slice(0, -10);
+    }
+    if(event.key == 'Enter') {
+        calculate();
+    }
+})
+
 decimal.addEventListener('click', () => {
     upper.textContent += '.';
 })
