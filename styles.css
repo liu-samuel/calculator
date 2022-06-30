@@ -17,6 +17,14 @@
     border-radius: 10px;
 }
 
+.erase {
+    background-color: red;
+}
+
+.clear {
+    background-color: green;
+}
+
 .operations {
     color: red;
 }
@@ -42,6 +50,10 @@
 }
 
 .clear:hover {
+    background-color: darkgray;
+}
+
+.erase:hover {
     background-color: darkgray;
 }
 
