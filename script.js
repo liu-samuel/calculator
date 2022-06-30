@@ -5,6 +5,7 @@ let decimal = document.querySelector(".decimal")
 let upper = document.querySelector(".upper")
 let lower = document.querySelector(".lower")
 let clear = document.querySelector(".clear")
+let erase = document.querySelector(".erase")
 
 let displayValue = NaN;
 let displayValue2 = NaN;
@@ -76,6 +77,10 @@ clear.addEventListener('click', () => {
     displayValue = NaN;
     displayValue2 = NaN;
     operating = false
+})
+
+erase.addEventListener('click', () => {
+    upper.textContent = upper.textContent[0, upper.textContent.length - 1];
 })
 
 function determineOperator(operation) {

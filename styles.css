@@ -9,6 +9,14 @@
     border-radius: 10px;
 }
 
+.erase, .clear {
+    display: inline-block;
+    width: 150px;
+    margin-left: 15px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+}
+
 .operations {
     color: red;
 }
@@ -61,12 +69,6 @@
     flex-direction: column;
 }
 
-.clear {
-    width: 300px;
-    margin-left: 15px;
-    margin-bottom: 10px;
-    border-radius: 10px;
-}
 
 .grid {
     width: 360px;
