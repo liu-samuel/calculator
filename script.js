@@ -47,6 +47,7 @@ operations.forEach(operation => {
             lower.textContent = upper.textContent
             displayValue = lower.textContent
             upper.textContent = ''
+            operating = !operating;
         }
         else {
             displayValue2 = upper.textContent
@@ -56,7 +57,7 @@ operations.forEach(operation => {
             upper.textContent = ''
             operator = determineOperator(operation);
         }
-        operating = !operating;
+        
     })     
 })
     
