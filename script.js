@@ -6,8 +6,8 @@ let upper = document.querySelector(".upper")
 let lower = document.querySelector(".lower")
 let clear = document.querySelector(".clear")
 
-let displayValue = 0;
-let displayValue2 = 0;
+let displayValue = NaN;
+let displayValue2 = NaN;
 let operator = ''
 let operating = false;
 
@@ -44,8 +44,8 @@ operations.forEach(operation => {
     operation.addEventListener('click', () => {
         if (!operating) {
             operator = determineOperator(operation);
-            displayValue = upper.textContent
             lower.textContent = upper.textContent
+            displayValue = lower.textContent
             upper.textContent = ''
         }
         else {
@@ -65,15 +65,15 @@ decimal.addEventListener('click', () => {
 })
 
 equals.addEventListener('click', () => {
-    calculate();
+    displayValue = calculate();
 })
 
 
 clear.addEventListener('click', () => {
     upper.textContent = '';
     lower.textContent = '';
-    displayValue = 0;
-    displayValue2 = 0;
+    displayValue = NaN;
+    displayValue2 = NaN;
     operating = false
 })
 
@@ -106,7 +106,8 @@ function calculate() {
         displayValue2 = upper.textContent
         upper.textContent = ''
         lower.textContent = operate(displayValue, operator, displayValue2)
+        displayValue = lower.textContent;
     }
     operating = !operating
-    return lower.textContent;
+    return displayValue;
 }
