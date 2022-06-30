@@ -109,6 +109,5 @@ function calculate() {
         lower.textContent = operate(displayValue, operator, displayValue2)
         displayValue = lower.textContent;
     }
-    operating = !operating
     return displayValue;
 }
